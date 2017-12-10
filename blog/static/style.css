@@ -3,9 +3,10 @@ body {
 	margin: 0 0 0 0;
 }
 .zbeubeu {
-		width: 50%;
-		height: 90%;
+		width: 550px;
+		height: 98%;
 		float: left;
+		background-color: #2E2E2E;
 	}
 #button{
 		width: 50px;
@@ -16,6 +17,10 @@ body {
 	float: right;
 }
 .headLine{
-	width: 100%;
+	width: 550px;
+	height: 55px;
 	background-color: #2E2E2E;
+	color: white;
+	float:right;
+	text-align:right;
 }
