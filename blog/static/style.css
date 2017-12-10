@@ -1,12 +1,21 @@
-#zbeubeu {
-		width: 400px;
-		height: 400px;
-	}
-	body {
-		background-color: #151515;
+body {
+	background-color: #151515;
+	margin: 0 0 0 0;
+}
+.zbeubeu {
+		width: 50%;
+		height: 90%;
+		float: left;
 	}
 #button{
 		width: 50px;
 		height: 30px;
 		border: 1px #151515;
 	}
+.picture-to-draw{
+	float: right;
+}
+.headLine{
+	width: 100%;
+	background-color: #2E2E2E;
+}

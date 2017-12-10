@@ -1,6 +1,5 @@
 
 {% load static %}
-<div id="zbeubeu"></div>
 
 <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 <script src="{% static 'jquery-3.2.1.min.js' %}"></script>
@@ -8,6 +7,14 @@
 <script src="{% static 'drawingboard.nocontrol.min.js' %}"></script>
 
 <body>
+<div class="headLine">
+	
+</div>
+<div id="zbeubeu" class="zbeubeu">
+</div>
+<div class="picture-to-draw">
+		<img src="{% static 'drawing1.png' %}" height="90%">
+	</div>
 <script>
 	var myBoard = new DrawingBoard.Board('zbeubeu', {
 		controls: [
@@ -16,9 +23,12 @@
 					{ DrawingMode: { filler: false } },
 					
 				],
-		controlsPosition : "down right"
 
 	});
+
+//------------------------------------------------------Customize paint tool----------------------------------------
+	var controlBtns = document.getElementsByClassName("drawing-board-controls")[0];
+	document.getElementsByClassName("headLine")[0].appendChild(controlBtns);
 
 	var pen = document.getElementsByClassName("drawing-board-control-drawingmode-pencil-button");
 	pen[0].id = "button";
@@ -38,8 +48,13 @@
 	reset[0].id = "button";
 	reset[0].innerHTML = "reset";
 
+	document.getElementsByClassName("drawing-board-canvas-wrapper")[0].style.height = "100%";
+	document.getElementsByClassName("drawing-board-canvas")[0].style.height = "100%";
+
 
 	var stuff = document.getElementsByClassName("drawing-board-cursor");
 	stuff[0].style.display = 'none';
+//-----------------------------------------------End of customize paint tool----------------------------------------
+
 </script>
 </body>
