@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+
+<html>
+    <head>
+        <title>Blog</title>
+        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    </head>
+    <body>
+    <H1><a href="">BLOG</a></H1>
+        {% block content %}
+
+        {% endblock %}
+    </body>
+</html>

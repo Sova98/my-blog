@@ -1,18 +1,15 @@
-<html>
-    <head>
-        <title>Blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Blog</a></h1>
-        </div>
+{% load static %}
+<div id="zbeubeu"></div>
 
-        {% for post in posts %}
-            <div>
-                <H1>{{ post.title }}</H1>
-                {{ post.text }}
-                <p><small>{{ post.author }}</small></p>
-            </div>
-        {% endfor %}
-    </body>
-</html>
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<script src="{% static 'jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'drawingboard.min.js' %}"></script>
+<script src="{% static 'drawingboard.nocontrol.min.js' %}"></script>
+
+<body>
+<script>
+	var myBoard = new DrawingBoard.Board('zbeubeu', {
+		
+	});
+</script>
+</body>
