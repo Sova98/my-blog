@@ -1,3 +1,4 @@
+
 {% load static %}
 <div id="zbeubeu"></div>
 
@@ -9,7 +10,36 @@
 <body>
 <script>
 	var myBoard = new DrawingBoard.Board('zbeubeu', {
-		
+		controls: [
+					{ Size: { type: "range", min: 1, max: 42 } },
+					{ Navigation: { back: false, forward: false } },
+					{ DrawingMode: { filler: false } },
+					
+				],
+		controlsPosition : "down right"
+
 	});
+
+	var pen = document.getElementsByClassName("drawing-board-control-drawingmode-pencil-button");
+	pen[0].id = "button";
+	pen[0].innerHTML = "pen";
+
+	var eraser = document.getElementsByClassName("drawing-board-control-drawingmode-eraser-button");
+
+	eraser[0].id = "button";
+	eraser[0].innerHTML = "eraser";
+
+	var resetDiv = document.getElementsByClassName("drawing-board-control-navigation");
+	resetDiv[0].style.display = "inline";
+	var panel = document.getElementsByClassName("drawing-board-control drawing-board-control-drawingmode");
+	panel[0].appendChild(resetDiv[0]);
+
+	var reset = document.getElementsByClassName("drawing-board-control-navigation-reset");
+	reset[0].id = "button";
+	reset[0].innerHTML = "reset";
+
+
+	var stuff = document.getElementsByClassName("drawing-board-cursor");
+	stuff[0].style.display = 'none';
 </script>
 </body>
