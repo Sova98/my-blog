@@ -29,7 +29,7 @@ def validate_username(request):
     #	f.write(imgBase64)
     #img1 = Image.open("/home/sovervo/my-blog/blog/user_drawing.png")
     #img1 = img1.resize((476,500), Image.ANTIALIAS)
-    img1 = Image.open("blog/user_drawing.png")
+    img1 = Image.open("/home/sovervo/my-blog/blog/user_drawing.png")
     img1 = img1.resize((476,500), Image.ANTIALIAS)
     im_1_width, im_1_height = img1.size
 
@@ -39,9 +39,9 @@ def validate_username(request):
     		if(px[x,y][0] != 255):
     			px[x,y] = 0
 
-    img1.save("blog/user_drawing.png")
+    img1.save("/home/sovervo/my-blog/blog/user_drawing.png")
 
-    img = Image.open("blog/first_image.png")
+    img = Image.open("/home/sovervo/my-blog/blog/first_image.png")
 
     sum_pixel = compare(img, img1)
     #count = count_pixel(img, img1)
