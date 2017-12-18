@@ -1,31 +1,61 @@
 
 {% load static %}
-
 <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 <script src="{% static 'jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'drawingboard.min.js' %}"></script>
 <script src="{% static 'drawingboard.nocontrol.min.js' %}"></script>
+<script src="{% static 'sendImage.js' %}"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script> 
+
 <body>
 <div class="headLine">
 	<H1>Learn To Draw</H1>
 </div>
 <div id="zbeubeu" class="zbeubeu">
 </div>
+<input type="button" value="Compare" id="compare"/>
+
 <div class="picture-to-draw">
-		<img src="{% static 'drawing1.png' %}" width="550px" height="90%">
+		<img name="imageToDraw" id="imageToDraw" src="{% static 'first_image.png' %}" width="550px" height="90%">
 	</div>
+
 <script>
 	var myBoard = new DrawingBoard.Board('zbeubeu', {
 		controls: [
 					{ Size: { type: "range", min: 1, max: 42 } },
 					{ Navigation: { back: false, forward: false } },
 					{ DrawingMode: { filler: false } },
+					'Download'
 					
 				],
-		background: "{% static 'drawing1_template.png' %}",
+		background: "{% static 'first_image_tp.png' %}",
 		eraserColor : "#fff",
 		stretchImg : true,
+		color : "#000",
+
 	});
+
+//------------------------------------------------------Send and Compare----------------------------------------
+		$("#compare").click(function(e){
+			e.preventDefault();
+			document.getElementById("compare").value = "Wait! Don't click anymore!";
+			var canvas = document.getElementsByClassName("drawing-board-canvas")[0];
+			var imgBase64 = canvas.toDataURL();
+		    $.ajax({
+		    	type: "POST",
+		    	dataType: "json",
+		    	data: {
+		    		'imgBase64' : imgBase64,
+		    		'csrfmiddlewaretoken': '{{ csrf_token }}',
+		    	},
+		    	url: "/ajax/validate_username/",
+		    	success: function(result){
+		        	alert(result.count);
+		        	document.getElementById("compare").value = "Compare";	
+		    	}
+			});
+		});
+
 
 //------------------------------------------------------Customize paint tool----------------------------------------
 	/*var controlBtns = document.getElementsByClassName("drawing-board-controls")[0];
@@ -53,7 +83,14 @@
 
 	var stuff = document.getElementsByClassName("drawing-board-cursor");
 	stuff[0].style.display = 'none';
-//-----------------------------------------------End of customize paint tool----------------------------------------
+//----------------------------------------------End of customize paint tool----------------------------------------
+	function showImage(){
+		var image = document.createElement("img");
+		var canvas = document.getElementsByClassName("drawing-board-canvas")[0];
+		var dataURL = canvas.toDataURL();
+		image.src = dataURL;
+		return dataURL;
+	}
 
 </script>
 </body>

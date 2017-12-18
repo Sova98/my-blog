@@ -1,0 +1,36 @@
+{% extends 'blog/base_ajax.html' %}
+
+{% block javascript %}
+<script type="text/javascript">
+        $(function() {            
+          $('#fileUploadForm').ajaxForm({ 
+            url: '/ajax/validate_username/',               
+            beforeSubmit: ShowRequest,
+            success: SubmitSuccesful,
+            error: AjaxError                               
+          });                                    
+        });            
+
+        function ShowRequest(formData, jqForm, options) {
+          return true;
+        }
+
+        function AjaxError() {
+          alert("An AJAX error occured.");
+        }
+
+        function SubmitSuccesful(responseText, statusText) {        
+          alert("SuccesMethod:\n\n" + responseText.pixel);
+        }    
+    </script>
+{% endblock %}
+
+{% block content %}
+<p id="result"></p>
+<form id="fileUploadForm" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+      <input type="text" name="filename" id="fileId" />
+      <input type="file" id="postedFile" name="postedFile" />
+      <input type="submit" value="Submit" />
+</form>
+{% endblock %}
