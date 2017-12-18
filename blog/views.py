@@ -18,17 +18,15 @@ class SignUpView(CreateView):
 
 def validate_username(request):
 
-    #imgBase64 = request.POST.get("imgBase64")
+    imgBase64 = request.POST.get("imgBase64")
 
-    #imgBase64 = imgBase64.replace('data:image/png;base64,', '')
-    #imgBase64 = imgBase64.replace(' ', '+')
-    #imgBase64 = base64.b64decode(imgBase64 + "==")
+    imgBase64 = imgBase64.replace('data:image/png;base64,', '')
+    imgBase64 = imgBase64.replace(' ', '+')
+    imgBase64 = base64.b64decode(imgBase64 + "==")
 
 
-    #with open("/home/sovervo/my-blog/blog/user_drawing.png", 'wb') as f:
-    #	f.write(imgBase64)
-    #img1 = Image.open("/home/sovervo/my-blog/blog/user_drawing.png")
-    #img1 = img1.resize((476,500), Image.ANTIALIAS)
+    with open("/home/sovervo/my-blog/blog/static/user_drawing.png", 'wb') as f:
+    	f.write(imgBase64)
     img1 = Image.open("/home/sovervo/my-blog/blog/static/user_drawing.png")
     img1 = img1.resize((476,500), Image.ANTIALIAS)
     im_1_width, im_1_height = img1.size
