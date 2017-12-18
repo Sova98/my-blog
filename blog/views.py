@@ -25,9 +25,9 @@ def validate_username(request):
     imgBase64 = base64.b64decode(imgBase64 + "==")
 
 
-    with open("blog/static/user_drawing.png", 'wb') as f:
+    with open("/home/sovervo/my-blog/blog/user_drawing.png", 'wb') as f:
     	f.write(imgBase64)
-    img1 = Image.open("blog/static/user_drawing.png")
+    img1 = Image.open("/home/sovervo/my-blog/blog/user_drawing.png")
     img1 = img1.resize((476,500), Image.ANTIALIAS)
     
     im_1_width, im_1_height = img1.size
@@ -38,9 +38,9 @@ def validate_username(request):
     		if(px[x,y][0] != 255):
     			px[x,y] = 0
 
-    img1.save("blog/static/user_drawing.png")
+    img1.save("/home/sovervo/my-blog/blog/user_drawing.png")
 
-    img = Image.open("blog/static/first_image.png")
+    img = Image.open("/home/sovervo/my-blog/blog/first_image.png")
 
     sum_pixel = compare(img, img1)
     #count = count_pixel(img, img1)
