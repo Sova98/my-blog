@@ -109,8 +109,10 @@ def compare(im, im_1):
 
 	if(countSum < shouldBe):
 		return str(round(countSum*100/shouldBe)) +" %"
+	elif:(2*countSum > shouldBe):
+		return str(200 - round(countSum*100/shouldBe)) +" %"
 	else:
-		return str(round(countSum*100/shouldBe - 100)) +" %"
+		return "Too low result."
 
 def count_pixel(im, im_1):
 	width, height = im.size
