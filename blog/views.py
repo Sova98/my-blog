@@ -109,7 +109,7 @@ def compare(im, im_1):
 
 	if(countSum < shouldBe):
 		return str(round(countSum*100/shouldBe)) +" %"
-	elif:(2*countSum > shouldBe):
+	elif(2*countSum > shouldBe):
 		return str(200 - round(countSum*100/shouldBe)) +" %"
 	else:
 		return "Too low result."
