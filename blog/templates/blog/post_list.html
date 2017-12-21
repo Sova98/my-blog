@@ -4,8 +4,6 @@
 <script src="{% static 'jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'drawingboard.min.js' %}"></script>
 <script src="{% static 'drawingboard.nocontrol.min.js' %}"></script>
-<script src="{% static 'sendImage.js' %}"></script>
-
 
 <body>
 <div class="headLine">
@@ -14,7 +12,7 @@
 <div id="zbeubeu" class="zbeubeu">
 </div>
 <input type="button" value="Compare" id="compare"/>
-
+<p id="size"></p>
 <div class="picture-to-draw">
 		<img name="imageToDraw" id="imageToDraw" src="{% static 'first_image.png' %}" width="550px" height="90%">
 	</div>
@@ -93,4 +91,8 @@
 	}
 
 </script>
+
+<script src="{% static 'pressure.js' %}"></script>
+<script src="{% static 'jquery.pressure.js' %}"></script>
+<script src="{% static 'example.js' %}"></script>
 </body>
